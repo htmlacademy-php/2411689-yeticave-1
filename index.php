@@ -27,24 +27,24 @@ $user_name = 'Daria Reis'; // укажите здесь ваше имя
         <a class="main-header__add-lot button" href="pages/add-lot.html">Добавить лот</a>
 
         <nav class="user-menu">
-<?php if ($is_auth == 1) {
-echo '<div class="user-menu__logged">';
-echo '<p>' . $user_name . '</p>';
-echo '<a class="user-menu__bets" href="pages/my-bets.html">Мои ставки</a>';
-echo '<a class="user-menu__logout" href="#">Выход</a>';
-echo '</div>';
-}
-else {
-    echo '<ul class="user-menu__list">';
-    echo '<li class="user-menu__item">';
-    echo '<a href="#">Регистрация</a>';
-    echo '</li>';
-    echo '<li class="user-menu__item">';
-    echo '<a href="#">Вход</a>';
-    echo '</li>';
-    echo '</ul>';
-}
-?>
+<?php if ($is_auth === 1): ?>
+<div class="user-menu__logged">
+<p><?= htmlspecialchars($user_name, ENT_QUOTES, 'UTF-8') ?></p>
+<a class="user-menu__bets" href="pages/my-bets.html">Мои ставки</a>
+<a class="user-menu__logout" href="#">Выход</a>
+</div>
+
+<?php else: ?>
+    <ul class="user-menu__list">
+    <li class="user-menu__item">
+    <a href="#">Регистрация</a>
+    </li>
+    <li class="user-menu__item">
+    <a href="#">Вход</a>
+    </li>
+    </ul>
+
+<?php endif; ?>
 
 
         </nav>
